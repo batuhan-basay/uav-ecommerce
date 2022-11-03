@@ -1,0 +1,12 @@
+<div class="list-group">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
+      </div>
+    {% for category in categories %}
+      {% if category.slug == selected_category  %}
+          <a class="list-group-item list-group-item-action active" href="{% url 'uavs_by_category' category.slug %}">{{ category.name|title }}</a>
+      {% else %}
+          <a class="list-group-item list-group-item-action" href="{% url 'uavs_by_category' category.slug %}">{{ category.name|title }}</a>
+    {% endif %}
+  {% endfor %}
+</div>

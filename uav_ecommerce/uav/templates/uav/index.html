@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'uav/css/style.css' %}">
+{% endblock %}
+
+
+{% block model%} Homepage{% endblock %}
+
+{% block content %}
+<div class="container">
+<div id="carouselExampleSlidesOnly con" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="static\img\slider.jpg" alt="First slide">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-3">
+            {% include 'partials/_categories.html' %}
+        </div>
+        <div class="col-md-9">
+            <h1>Home Page</h1>
+            <hr>
+            <div class="card-group">  
+
+            {% for uav in uavs %}
+                {% if uav.is_home and uav.is_active %}
+                    {% include 'uav/partials/_uav.html' %}
+                {% endif %}
+            {% endfor %}
+            </div>
+         
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js_files %} 
+    <script src="{% static 'uav/js/script.js' %}"></script>
+{% endblock %}

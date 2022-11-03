@@ -1,0 +1,17 @@
+{% load static %}
+
+
+<div class="card">
+    <img src="{{ uav.image.url }}" alt="" class="img-fluid">
+    <div class="card-body">
+        <h5 class="card-title"> 
+            <a href="{% url 'uav_details' uav.slug %}">
+                {{ uav.model }}
+            </a>
+        </h5>
+        <p class="card-text">{{ uav.description|striptags|slice:"0:50" }}</p>
+    </div>
+    <div class="card-footer">
+        <span class="badge bg-success">{{ uav.price }} TL</span>
+    </div>
+</div>
